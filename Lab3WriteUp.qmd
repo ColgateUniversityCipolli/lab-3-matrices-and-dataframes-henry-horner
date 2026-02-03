@@ -115,6 +115,11 @@ $$\mathbf{M} = \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix}.$$
 
 # Question 1
 Let's transform $\mathbf{M}$ to demonstrate an interesting linear algebra property.
+```{r}
+#| size: "scriptsize"
+#| code-fold: FALSE
+(M = diag(2))
+```
 
 ## Part a
 Create the matrix `A` in `R`.
@@ -124,15 +129,30 @@ $$\mathbf{A} = \begin{bmatrix} 1 & -7 \\ 5 & 9 \end{bmatrix}$$
 ```{r}
 #| size: "scriptsize"
 #| code-fold: FALSE
-(matrix(c(1,-7,5,9),2,2,T))
+(A = matrix(c(1,-7,5,9),2,2,T))
 ```
 
 ## Part b
 Compute the product below in `R` and store it in an object `T`.
 $$\mathbf{T} = \mathbf{A}\mathbf{M}.$$
 
+**Solution:**
+```{r}
+#| size: "scriptsize"
+#| code-fold: FALSE
+(T = A %*% M)
+```
+
 ## Part c
 Create `basis.vector.1` (first column of `T`) and `basis.vector.2` (second column of `T`) in `R`.
+
+**Solution:**
+```{r}
+#| size: "scriptsize"
+#| code-fold: FALSE
+(basis_verctor_1 = T[,1])
+(basis_vector_2 = T[,2])
+```
 
 ## Part d
 Compute the points $p_0$, $p_1$, $p_2$, and $p_3$.
