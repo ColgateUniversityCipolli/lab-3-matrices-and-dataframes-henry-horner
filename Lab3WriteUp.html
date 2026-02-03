@@ -937,31 +937,31 @@ Figure&nbsp;7: A ladder.
 [1,]  1.0    0
 [2,]  0.5    1</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb114"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb114-1"><a href="#cb114-1"></a>(<span class="at">T =</span> A <span class="sc">%*%</span> M)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb114"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb114-1"><a href="#cb114-1"></a>(<span class="at">T =</span> A <span class="sc">%*%</span> M_h)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      [,1] [,2]
- [1,]    0  0.0
- [2,]   10 20.0
- [3,]    1  0.5
- [4,]   11 20.5
- [5,]    1  2.0
- [6,]    2  2.5
- [7,]    2  4.0
- [8,]    3  4.5
- [9,]    3  6.0
-[10,]    4  6.5
-[11,]    4  8.0
-[12,]    5  8.5
-[13,]    5 10.0
-[14,]    6 10.5
-[15,]    6 12.0
-[16,]    7 12.5
-[17,]    7 14.0
-[18,]    8 14.5
-[19,]    8 16.0
-[20,]    9 16.5
-[21,]    9 18.0
-[22,]   10 18.5</code></pre>
+ [1,]    0    0
+ [2,]   10   20
+ [3,]    1    0
+ [4,]   11   20
+ [5,]    1    2
+ [6,]    2    2
+ [7,]    2    4
+ [8,]    3    4
+ [9,]    3    6
+[10,]    4    6
+[11,]    4    8
+[12,]    5    8
+[13,]    5   10
+[14,]    6   10
+[15,]    6   12
+[16,]    7   12
+[17,]    7   14
+[18,]    8   14
+[19,]    8   16
+[20,]    9   16
+[21,]    9   18
+[22,]   10   18</code></pre>
 </div>
 </div>
 <p></p>
@@ -974,29 +974,29 @@ Figure&nbsp;7: A ladder.
 <div class="cell">
 <div class="sourceCode cell-code" id="cb116"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb116-1"><a href="#cb116-1"></a>(<span class="at">leaning.ladder =</span> <span class="fu">data.frame</span>(<span class="at">x =</span> T[,<span class="dv">1</span>], <span class="at">y =</span> T[,<span class="dv">2</span>], <span class="at">group=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">9</span>,<span class="dv">10</span>,<span class="dv">10</span>,<span class="dv">11</span>,<span class="dv">11</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>    x    y group
-1   0  0.0     1
-2  10 20.0     1
-3   1  0.5     2
-4  11 20.5     2
-5   1  2.0     3
-6   2  2.5     3
-7   2  4.0     4
-8   3  4.5     4
-9   3  6.0     5
-10  4  6.5     5
-11  4  8.0     6
-12  5  8.5     6
-13  5 10.0     7
-14  6 10.5     7
-15  6 12.0     8
-16  7 12.5     8
-17  7 14.0     9
-18  8 14.5     9
-19  8 16.0    10
-20  9 16.5    10
-21  9 18.0    11
-22 10 18.5    11</code></pre>
+<pre><code>    x  y group
+1   0  0     1
+2  10 20     1
+3   1  0     2
+4  11 20     2
+5   1  2     3
+6   2  2     3
+7   2  4     4
+8   3  4     4
+9   3  6     5
+10  4  6     5
+11  4  8     6
+12  5  8     6
+13  5 10     7
+14  6 10     7
+15  6 12     8
+16  7 12     8
+17  7 14     9
+18  8 14     9
+19  8 16    10
+20  9 16    10
+21  9 18    11
+22 10 18    11</code></pre>
 </div>
 </div>
 <p></p>
@@ -1026,6 +1026,18 @@ Figure&nbsp;7: A ladder.
 <span id="cb118-16"><a href="#cb118-16"></a>  <span class="fu">ylim</span>(<span class="sc">-</span><span class="dv">2</span>,<span class="dv">22</span>) <span class="sc">+</span></span>
 <span id="cb118-17"><a href="#cb118-17"></a>  <span class="fu">scale_color_manual</span>(<span class="st">""</span>, <span class="at">values=</span><span class="fu">c</span>(<span class="st">"darkred"</span>, <span class="st">"grey"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
+<div class="cell-output-display">
+<div id="fig-ladder2" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-ladder2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;8: A ladder and a leaning ladder.
+</figcaption>
+<div aria-describedby="fig-ladder2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="Lab3WriteUp_files/figure-html/fig-ladder2-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="288">
+</div>
+</figure>
+</div>
+</div>
 </div>
 <p></p>
 </section>

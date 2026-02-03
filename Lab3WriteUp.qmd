@@ -531,7 +531,7 @@ and use $k=0.5.$
 #| code-fold: FALSE
 (A = as.matrix(ladder[, c(1,2)]))
 (M_h = matrix(c(1,0,k,1),2,2,T))
-(T = A %*% M)
+(T = A %*% M_h)
 ```
 
 ## Part d
@@ -548,7 +548,6 @@ Create a data frame `leaning.ladder` with the `x` and `y` equal to the first and
 Remove `eval: false` in the code below. The result should look like a ladder and a very rectangular house if part a is correct. The new leaning ladder should look like it is leaning on the house.
 
 ```{r}
-#| eval: false
 #| label: fig-ladder2
 #| fig-cap: "A ladder and a leaning ladder."
 #| fig-width: 3
