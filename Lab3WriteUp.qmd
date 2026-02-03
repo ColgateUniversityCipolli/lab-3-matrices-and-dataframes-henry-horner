@@ -120,6 +120,13 @@ Let's transform $\mathbf{M}$ to demonstrate an interesting linear algebra proper
 Create the matrix `A` in `R`.
 $$\mathbf{A} = \begin{bmatrix} 1 & -7 \\ 5 & 9 \end{bmatrix}$$
 
+**Solution:**
+```{r}
+#| size: "scriptsize"
+#| code-fold: FALSE
+(matrix(c(1,-7,5,9),2,2,T))
+```
+
 ## Part b
 Compute the product below in `R` and store it in an object `T`.
 $$\mathbf{T} = \mathbf{A}\mathbf{M}.$$
