@@ -525,6 +525,15 @@ Recall,
 $$\mathbf{M}_h = \begin{bmatrix} 1 & 0 \\ k & 1 \end{bmatrix}$$
 and use $k=0.5.$
 
+**Solution:**
+```{r}
+#| size: "scriptsize"
+#| code-fold: FALSE
+(A = as.matrix(ladder[, c(1,2)]))
+(M_h = matrix(c(1,0,k,1),2,2,T))
+(T = A %*% M)
+```
+
 ## Part d
 Create a data frame `leaning.ladder` with the `x` and `y` equal to the first and second column of $\mathbf{T}$, respectively, and the same values of `group` from `ladder`. 
 

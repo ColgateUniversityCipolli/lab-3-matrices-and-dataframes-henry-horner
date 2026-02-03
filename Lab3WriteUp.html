@@ -902,6 +902,69 @@ Figure&nbsp;7: A ladder.
 <section id="part-c-3" class="level2" data-number="4.3">
 <h2 data-number="4.3" class="anchored" data-anchor-id="part-c-3"><span class="header-section-number">4.3</span> Part c</h2>
 <p>Use <code>as.matrix()</code> to create a <span class="math inline">\(22 \times 2\)</span> matrix <span class="math inline">\(\mathbf{A}\)</span> containing the <code>x</code> and <code>y</code> observations from the <code>ladder</code> data frame. Use matrix multiplication to compute <span class="math display">\[\mathbf{T} = \mathbf{A} \mathbf{M}_h.\]</span> Recall, <span class="math display">\[\mathbf{M}_h = \begin{bmatrix} 1 &amp; 0 \\ k &amp; 1 \end{bmatrix}\]</span> and use <span class="math inline">\(k=0.5.\)</span></p>
+<p><strong>Solution:</strong></p>
+<p></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb110"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb110-1"><a href="#cb110-1"></a>(<span class="at">A =</span> <span class="fu">as.matrix</span>(ladder[, <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>)]))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      x  y
+ [1,] 0  0
+ [2,] 0 20
+ [3,] 1  0
+ [4,] 1 20
+ [5,] 0  2
+ [6,] 1  2
+ [7,] 0  4
+ [8,] 1  4
+ [9,] 0  6
+[10,] 1  6
+[11,] 0  8
+[12,] 1  8
+[13,] 0 10
+[14,] 1 10
+[15,] 0 12
+[16,] 1 12
+[17,] 0 14
+[18,] 1 14
+[19,] 0 16
+[20,] 1 16
+[21,] 0 18
+[22,] 1 18</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb112"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb112-1"><a href="#cb112-1"></a>(<span class="at">M_h =</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">0</span>,k,<span class="dv">1</span>),<span class="dv">2</span>,<span class="dv">2</span>,T))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     [,1] [,2]
+[1,]  1.0    0
+[2,]  0.5    1</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb114"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb114-1"><a href="#cb114-1"></a>(<span class="at">T =</span> A <span class="sc">%*%</span> M)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      [,1] [,2]
+ [1,]    0  0.0
+ [2,]   10 20.0
+ [3,]    1  0.5
+ [4,]   11 20.5
+ [5,]    1  2.0
+ [6,]    2  2.5
+ [7,]    2  4.0
+ [8,]    3  4.5
+ [9,]    3  6.0
+[10,]    4  6.5
+[11,]    4  8.0
+[12,]    5  8.5
+[13,]    5 10.0
+[14,]    6 10.5
+[15,]    6 12.0
+[16,]    7 12.5
+[17,]    7 14.0
+[18,]    8 14.5
+[19,]    8 16.0
+[20,]    9 16.5
+[21,]    9 18.0
+[22,]   10 18.5</code></pre>
+</div>
+</div>
+<p></p>
 </section>
 <section id="part-d-2" class="level2" data-number="4.4">
 <h2 data-number="4.4" class="anchored" data-anchor-id="part-d-2"><span class="header-section-number">4.4</span> Part d</h2>
@@ -914,23 +977,23 @@ Figure&nbsp;7: A ladder.
 <div class="cell" data-layout-align="center" data-scale="80%">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb110"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb110-1"><a href="#cb110-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb110-2"><a href="#cb110-2"></a>  <span class="fu">geom_path</span>(<span class="at">data =</span> ladder, </span>
-<span id="cb110-3"><a href="#cb110-3"></a>              <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y, <span class="at">group =</span> group, <span class="at">color =</span> <span class="st">"Starting Ladder"</span>)) <span class="sc">+</span></span>
-<span id="cb110-4"><a href="#cb110-4"></a>  <span class="fu">geom_path</span>(<span class="at">data =</span> leaning.ladder, </span>
-<span id="cb110-5"><a href="#cb110-5"></a>              <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y, <span class="at">group =</span> group, <span class="at">color =</span> <span class="st">"Leaning Ladder"</span>)) <span class="sc">+</span></span>
-<span id="cb110-6"><a href="#cb110-6"></a>  <span class="fu">geom_segment</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="dv">10</span>, <span class="at">xend =</span> <span class="dv">10</span>,</span>
-<span id="cb110-7"><a href="#cb110-7"></a>                   <span class="at">y=</span><span class="dv">0</span>, <span class="at">yend =</span> <span class="dv">20</span>))<span class="sc">+</span></span>
-<span id="cb110-8"><a href="#cb110-8"></a>  <span class="fu">geom_segment</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="dv">10</span>, <span class="at">xend =</span> <span class="dv">20</span>,</span>
-<span id="cb110-9"><a href="#cb110-9"></a>                   <span class="at">y=</span><span class="dv">20</span>, <span class="at">yend =</span> <span class="dv">20</span>))<span class="sc">+</span></span>
-<span id="cb110-10"><a href="#cb110-10"></a>  <span class="fu">geom_segment</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="dv">20</span>, <span class="at">xend =</span> <span class="dv">20</span>,</span>
-<span id="cb110-11"><a href="#cb110-11"></a>                   <span class="at">y=</span><span class="dv">0</span>, <span class="at">yend =</span> <span class="dv">20</span>))<span class="sc">+</span></span>
-<span id="cb110-12"><a href="#cb110-12"></a>  <span class="fu">geom_segment</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="dv">10</span>, <span class="at">xend =</span> <span class="dv">20</span>,</span>
-<span id="cb110-13"><a href="#cb110-13"></a>                   <span class="at">y=</span><span class="dv">0</span>, <span class="at">yend =</span> <span class="dv">0</span>)) <span class="sc">+</span></span>
-<span id="cb110-14"><a href="#cb110-14"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
-<span id="cb110-15"><a href="#cb110-15"></a>  <span class="fu">xlim</span>(<span class="sc">-</span><span class="dv">2</span>,<span class="dv">22</span>) <span class="sc">+</span></span>
-<span id="cb110-16"><a href="#cb110-16"></a>  <span class="fu">ylim</span>(<span class="sc">-</span><span class="dv">2</span>,<span class="dv">22</span>) <span class="sc">+</span></span>
-<span id="cb110-17"><a href="#cb110-17"></a>  <span class="fu">scale_color_manual</span>(<span class="st">""</span>, <span class="at">values=</span><span class="fu">c</span>(<span class="st">"darkred"</span>, <span class="st">"grey"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb116"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb116-1"><a href="#cb116-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb116-2"><a href="#cb116-2"></a>  <span class="fu">geom_path</span>(<span class="at">data =</span> ladder, </span>
+<span id="cb116-3"><a href="#cb116-3"></a>              <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y, <span class="at">group =</span> group, <span class="at">color =</span> <span class="st">"Starting Ladder"</span>)) <span class="sc">+</span></span>
+<span id="cb116-4"><a href="#cb116-4"></a>  <span class="fu">geom_path</span>(<span class="at">data =</span> leaning.ladder, </span>
+<span id="cb116-5"><a href="#cb116-5"></a>              <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y, <span class="at">group =</span> group, <span class="at">color =</span> <span class="st">"Leaning Ladder"</span>)) <span class="sc">+</span></span>
+<span id="cb116-6"><a href="#cb116-6"></a>  <span class="fu">geom_segment</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="dv">10</span>, <span class="at">xend =</span> <span class="dv">10</span>,</span>
+<span id="cb116-7"><a href="#cb116-7"></a>                   <span class="at">y=</span><span class="dv">0</span>, <span class="at">yend =</span> <span class="dv">20</span>))<span class="sc">+</span></span>
+<span id="cb116-8"><a href="#cb116-8"></a>  <span class="fu">geom_segment</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="dv">10</span>, <span class="at">xend =</span> <span class="dv">20</span>,</span>
+<span id="cb116-9"><a href="#cb116-9"></a>                   <span class="at">y=</span><span class="dv">20</span>, <span class="at">yend =</span> <span class="dv">20</span>))<span class="sc">+</span></span>
+<span id="cb116-10"><a href="#cb116-10"></a>  <span class="fu">geom_segment</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="dv">20</span>, <span class="at">xend =</span> <span class="dv">20</span>,</span>
+<span id="cb116-11"><a href="#cb116-11"></a>                   <span class="at">y=</span><span class="dv">0</span>, <span class="at">yend =</span> <span class="dv">20</span>))<span class="sc">+</span></span>
+<span id="cb116-12"><a href="#cb116-12"></a>  <span class="fu">geom_segment</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="dv">10</span>, <span class="at">xend =</span> <span class="dv">20</span>,</span>
+<span id="cb116-13"><a href="#cb116-13"></a>                   <span class="at">y=</span><span class="dv">0</span>, <span class="at">yend =</span> <span class="dv">0</span>)) <span class="sc">+</span></span>
+<span id="cb116-14"><a href="#cb116-14"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb116-15"><a href="#cb116-15"></a>  <span class="fu">xlim</span>(<span class="sc">-</span><span class="dv">2</span>,<span class="dv">22</span>) <span class="sc">+</span></span>
+<span id="cb116-16"><a href="#cb116-16"></a>  <span class="fu">ylim</span>(<span class="sc">-</span><span class="dv">2</span>,<span class="dv">22</span>) <span class="sc">+</span></span>
+<span id="cb116-17"><a href="#cb116-17"></a>  <span class="fu">scale_color_manual</span>(<span class="st">""</span>, <span class="at">values=</span><span class="fu">c</span>(<span class="st">"darkred"</span>, <span class="st">"grey"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p></p>
